@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script async src="./modules/quard.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<title>Valuet</title>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="style.scss">
+	<link rel="stylesheet" href="scss/wallets.scss">
+</head>
+
+<body>
+	<div class="b">
+		<div id="app">
+			<aside class="sidebar" id="custom-aside">
+				<nav class="menu"></nav>
+			</aside>
+			<main class="main">
+				<div class="container">
+					<header></header>
+					<div class="page-wrapper">
+
+						<div class="page  show-page" id="overview">
+
+							<div class="overview__top">
+								<div class="top__header">
+									<div class="header__left-section">
+										<h2 class="header__title">Overview</h2>
+										<span id="overview_date">25 October, Sunday</span>
+									</div>
+									<div class="header__right-section">
+										<button id="add_widgets">Add Card</button>
+									</div>
+								</div>
+
+								<div class="top__content">
+
+									<div class="box">
+
+										<h2>balance</h2>
+										<div class="canvas_box">
+											<canvas id="balanceChart">
+											</canvas>
+											<p>Balance <br> <span id="total-balance">8200$</span></p>
+										</div>
+										<div class="item_box">
+											<div class="item">
+												<div class="flex_fonts">
+													<div class="chaked one">
+														<img src="/public/white.svg" alt="">
+													</div>
+													<p class="one_text">Ethereum</p>
+												</div>
+												<p class="one_num">18%</p>
+											</div>
+											<div class="item">
+												<div class="flex_fonts">
+													<div class="chaked two">
+														<img src="/public/blue.svg" alt="">
+													</div>
+													<p class="two_text">Bitcoin</p>
+												</div>
+												<p class="two_num">64%</p>
+											</div>
+											<div class="item">
+												<div class="flex_fonts">
+													<div class="chaked three">
+														<img src="/public/yellow.svg" alt="">
+													</div>
+													<p class="three_text">Dash</p>
+												</div>
+												<p class="three_num">18%</p>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="spending-chart">
+										<div class="spending-chart__header">
+											<div class="spending-chart__header-top">
+												<div class="title">Spending</div>
+												<select name="">
+													<option value="">January</option>
+													<option value="">February</option>
+												</select>
+											</div>
+											<div class="spending-chart__header-bottom">
+												<p id="spending-chart__total-spending">$ 15,214.1</p>
+												<span>total spending</span>
+											</div>
+										</div>
+										<canvas id="spendingsChart" height="200"></canvas>
+									</div>
+									<div class="widgets-box">
+
+									</div>
+								</div>
+							</div>
+
+							<div class="overview__bottom">
+								<div class="market-chart">
+									<div class="market-chart__header">
+										<div class="market-chart__header-left">
+											<div class="title">Market</div>
+											<select name="currency">
+												<option value="">Bitcoin</option>
+												<option value="">Ethereum</option>
+											</select>
+										</div>
+										<div class="market-chart__header-right">
+											<select name="month">
+												<option value="">January</option>
+												<option value="">February</option>
+											</select>
+										</div>
+									</div>
+									<div class="merket-chart-box">
+										<canvas width="660" height="180px" id="marketChart"></canvas>
+									</div>
+								</div>
+								<div class="bottom__recent-news-box">
+									<h2 class="recent-news-box__title">Recent News</h2>
+									<div class="divider"></div>
+									<div class="recent-news-box__content"></div>
+									<div class="recent-news-box__scroll-down">
+										<div class="scroll-down__box">
+											<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5"
+												viewBox="0 0 8 5" fill="none">
+												<path d="M1 1L4 4L7 1" stroke="white" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="page" id="wallets">
+
+							<h2 class="wallets_h2__">Wallets</h2>
+							<div class="container__">
+								<div class="el1">
+									<div class="ii">
+										<div class="canvas_box">
+											<canvas width="60" height="60" id="balanceChart_">
+											</canvas>
+											<p class="p__">TOTAL <br> <span id="total-balance__">8200$</span></p>
+										</div>
+									</div>
+
+									<div class="ii	">
+										<div class="w1"><img src="/public/white.svg" alt="">
+											<p class="w1_p">Ethereum</p>
+											<p class="w1_h2">18%</p>
+										</div>
+										<div class="w1"><img src="/public/blue.svg" alt="">
+											<p class="w1_p">Bitcoin</p>
+											<p class="w1_h3">64%</p>
+										</div>
+										<div class="w1"><img src="/public/yellow.svg" alt="">
+											<p class="w1_p">Dash</p>
+											<p class="w1_h4">18%</p>
+										</div>
+									</div>
+								</div>
+								<div class="el2">
+									<div class="containerr"></div>
+								</div>
+							</div>
+
+							<div class="news_chart_box">
+								<div class="wallets-chart">
+									<canvas width="552" height="399" id="walletsChart"></canvas>
+								</div>
+
+
+
+
+							</div>
+
+							<!-- /////////////////////////////////////////////////////azamat//////////////////////////// -->
+						</div>
+						<div class="page" id="transaction">
+							<div class="_transactions_container">
+								<div class="trangsictions">
+									<div class="text">
+										<h1>transactions</h1>
+									</div>
+									<div class="trangsictions_btn">
+										<button>add transaction</button>
+									</div>
+								</div>
+								<div class="total">
+									<div class="total-text">
+										<h2>Total</h2>
+										<h2>1,543</h2>
+									</div>
+									<div class="total-btns">
+										<button id="all" class="btn act">All</button>
+										<button id="red" class="act">Red</button>
+										<button id="green" class="act">Green</button>
+									</div>
+								</div>
+
+								<div class="analitic">
+									<div class="scroll-down">
+										<a href="#">
+											<img src="/public/VectorscrollDown.png" alt="">
+										</a>
+									</div>
+									<div class="big-box">
+									</div>
+
+								</div>
+
+
+
+							</div>
+						</div>
+						<div class="page" id="exchange">
+							<div class="contener_exchange">
+								<h1 class="h1_exchange">Exchange</h1>
+								<div class="flex_two_boxes">
+									<div class="from_box">
+										<p class="p_exchange">From</p>
+										<div class="item_block_one">
+
+											<div class="flex_selected_img">
+												<div class="selected_block">
+													<select class="style_select">
+														<option value="1">Bitcoin</option>
+														<option value="2">Dash</option>
+														<option value="3">GridCoin</option>
+														<option value="4">Nano</option>
+													</select>
+												</div>
+												<div class="img_block">
+													<div class="img_block_2">
+														<img src="/public/Bitcoin.svg" alt="">
+													</div>
+												</div>
+												<p class="balance-card"></p>
+
+												<div class="show_block_exchange">
+													<input type="text" name="balance" id="show_title"
+														placeholder="enter amount">
+													<p>BTC</p>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div class="to_box">
+											<p class="p_exchange_two">To</p>
+											<div class="item_block_two">
+
+												<div class="flex_selected_img">
+													<div class="selected_block_two">
+														<select class="style_select_two">
+															<option selected hidden value="">Select card</option>
+														</select>
+													</div>
+													<div class="img_block" id="img_block_two">
+														<div class="img_block_2" id="img_block_2_two">
+															<img src="./public/GridCoin.svg" alt="">
+														</div>
+													</div>
+												</div>
+												<p class="balance-card_two"></p>
+												<div class="show_block_exchange">
+													<div id="show_title"></div>
+													<p>GRC</p>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+
+									<div class="money_transfer_block">
+
+										<div class="from_money_transfer f">
+											<p class="send">00</p>
+											<p class="chosenCard">BTC</p>
+											<img src="/public/prozrachniy_bitkoin.png" alt="">
+										</div>
+
+										<div class="arrow"><img src="/public/Arrow.png" alt=""></div>
+
+										<div class="to_money_transfer f">
+											<img src="/public/prozrachniy_bitkoin_two.png" alt="">
+
+											<p class="send">00</p>
+											<p class="chosenCard">BTC</p>
+										</div>
+									</div>
+									<center>
+										<button type="submit" class="button_exchange">Exchange</button>
+									</center>
+								</div>
+							</div>
+						</div>
+						<div class="page" id="market">
+							<span class="market">Market</span>
+							<div class="market_box"></div>
+						</div>
+					</div>
+			</main>
+		</div>
+		</main>
+	</div>
+	</div>
+
+
+	<div class="add-card-modal">
+		<div class="modal-bg close-modal">
+		</div>
+		<div class="modal">
+			<h2>Add card</h2>
+			<span class="close-modal">&times;</span>
+			<form name="card" action="#">
+				<select name="currency" id="card-currency">
+					<option selected hidden value="">Select currency</option>
+				</select>
+				<input type="number" name="balance" placeholder="Balance">
+				<button type="submit">Create</button>
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<!-- 
+	/////////////////////////add_transaction_modal////////////////////// -->
+
+
+
+
+	<div class="add-transaction-modal">
+		<div class="transaction_modal-bg close-modal">
+		</div>
+		<div class="transactions">
+			<h2>Add transaction</h2>
+			<span class="transaction_close-modal">&times;</span>
+			<form name="transaction" action="#">
+				<select name="currency" id="transaction_select">
+					<option selected hidden value="">Select currency</option>
+					<!-- 		<option value="BTC">Bitcoin</option>
+					<option value="GRC">GridCoin</option>
+					<option value="ETH">Ethereum</option>
+					<option value="AE">Aeternity</option>
+					<option value="DASH">Dash</option> -->
+				</select>
+				<p id="balance_trans">Balance</p>
+				<input type="number" name="balance" placeholder="How many">
+				<button type="submit">Create</button>
+			</form>
+		</div>
+	</div>
+
+	<script type="module" src="components/Transactions/index.js"></script>
+	<script src="./modules/layout.js"></script>
+	<script src="./modules/resize.js"></script>
+	<script type="module" src="./modules/exchange.js"></script>
+	<script type="module" src="components/doc/donik/index.js"></script>
+	<script type="module" src="components/doc/charts/index.js"></script>
+	<script type="module" src="./main.js"></script>
+	<script type="module" src="components/doc/donik/index.js"></script>
+	<script type="module" src="components/doc/balance/index.js"></script>
+	<script type="module" src="components/doc/charts/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border-radius: 8px;
+  background: #20135c;
+  background: radial-gradient(87.34% 56.16% at 46.63% 48.05%, #20135c 0%, #140739 92.82%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.25);
+}
+
+.spending-chart {
+  border-radius: 5px;
+  background: linear-gradient(180deg, rgba(27, 18, 78, 0.2) 0%, #0f0b38 93.37%);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
+}
+.spending-chart__header {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 16px 24px 0;
+}
+.spending-chart__header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.spending-chart__header-top .title {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.spending-chart__header-top select {
+  border: none;
+  background: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.737254902);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.spending-chart__header-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  justify-content: space-between;
+}
+.spending-chart__header-bottom p {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.spending-chart__header-bottom span {
+  color: rgba(255, 255, 255, 0.662745098);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}/*# sourceMappingURL=style.css.map */
+
