@@ -1,7 +1,6 @@
 export function reload_card(place, array) {
     place.innerHTML = ""
     for (const item of array) {
-        console.log(item);
         let coin_cart = document.createElement(`div`)
         let coin_name = document.createElement(`h1`)
         let coin_info = document.createElement(`div`)

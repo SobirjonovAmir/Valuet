@@ -141,7 +141,6 @@ const { request, loading, error } = useHTTP()
 for (let i = 1; i <= 10; i++) {
 	request('https://api.cryptorank.io/v1/currencies/' + i)
 		.then(res => {
-			console.log(res.data);
 			let opt = new Option(res.data.name, JSON.stringify(res.data))
 			modal_selects[0].append(opt)
 		})
