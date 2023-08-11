@@ -129,8 +129,8 @@
 									<div class="recent-news-box__content"></div>
 									<div class="recent-news-box__scroll-down">
 										<div class="scroll-down__box">
-											<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5"
-												viewBox="0 0 8 5" fill="none">
+											<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5"
+												fill="none">
 												<path d="M1 1L4 4L7 1" stroke="white" />
 											</svg>
 										</div>
@@ -184,6 +184,7 @@
 
 							<!-- /////////////////////////////////////////////////////azamat//////////////////////////// -->
 						</div>
+
 						<div class="page" id="transaction">
 							<div class="_transactions_container">
 								<div class="trangsictions">
@@ -216,99 +217,105 @@
 									</div>
 
 								</div>
-
-
-
 							</div>
 						</div>
+
 						<div class="page" id="exchange">
-							<div class="contener_exchange">
-								<h1 class="h1_exchange">Exchange</h1>
-								<div class="flex_two_boxes">
-									<div class="from_box">
-										<p class="p_exchange">From</p>
-										<div class="item_block_one">
+							<div class="exchange__title">
+								<h2>Exchange</h2>
+							</div>
 
-											<div class="flex_selected_img">
-												<div class="selected_block">
-													<select class="style_select">
-														<option value="1">Bitcoin</option>
-														<option value="2">Dash</option>
-														<option value="3">GridCoin</option>
-														<option value="4">Nano</option>
-													</select>
-												</div>
-												<div class="img_block">
-													<div class="img_block_2">
-														<img src="/public/Bitcoin.svg" alt="">
-													</div>
-												</div>
-												<p class="balance-card"></p>
+							<div class="exchange__wrapper">
 
-												<div class="show_block_exchange">
-													<input type="text" name="balance" id="show_title"
-														placeholder="enter amount">
-													<p>BTC</p>
-												</div>
+								<div class="wrap-item">
+									<span>From</span>
+									<form name="from" action="#">
+										<div class="wrap-item__header">
+											<select name="from" id="from">
+												<option value="">Bitvoin</option>
+											</select>
+											<div class="item-logo">
+												<img src="/public/Bitcoin.svg" alt="logo">
 											</div>
 										</div>
+										<div class="wrap-item__bottom">
+											<input placeholder="Enter amount" type="number">
+											<span class="item-currency">BTC</span>
+										</div>
+									</form>
+								</div>
 
-
-
-										<div class="to_box">
-											<p class="p_exchange_two">To</p>
-											<div class="item_block_two">
-
-												<div class="flex_selected_img">
-													<div class="selected_block_two">
-														<select class="style_select_two">
-															<option selected hidden value="">Select card</option>
-														</select>
-													</div>
-													<div class="img_block" id="img_block_two">
-														<div class="img_block_2" id="img_block_2_two">
-															<img src="./public/GridCoin.svg" alt="">
-														</div>
-													</div>
-												</div>
-												<p class="balance-card_two"></p>
-												<div class="show_block_exchange">
-													<div id="show_title"></div>
-													<p>GRC</p>
-												</div>
+								<div class="wrap-item">
+									<span>To</span>
+									<form name="to" action="#">
+										<div class="wrap-item__header">
+											<select name="from" id="from">
+												<option value="">Bitvoin</option>
+												<option value="">Bitvoin</option>
+												<option value="">Bitvoin</option>
+											</select>
+											<div class="item-logo">
+												<img src="/public/Bitcoin.svg" alt="logo">
 											</div>
 										</div>
-
-									</div>
-
-
-									<div class="money_transfer_block">
-
-										<div class="from_money_transfer f">
-											<p class="send">00</p>
-											<p class="chosenCard">BTC</p>
-											<img src="/public/prozrachniy_bitkoin.png" alt="">
+										<div class="wrap-item__bottom">
+											<span></span>
+											<span class="item-currency">BTC</span>
 										</div>
-
-										<div class="arrow"><img src="/public/Arrow.png" alt=""></div>
-
-										<div class="to_money_transfer f">
-											<img src="/public/prozrachniy_bitkoin_two.png" alt="">
-
-											<p class="send">00</p>
-											<p class="chosenCard">BTC</p>
-										</div>
-									</div>
-									<center>
-										<button type="submit" class="button_exchange">Exchange</button>
-									</center>
+									</form>
 								</div>
 							</div>
+
+							<div class="exchange__bottom">
+								<div class="bottom__left">
+									<p class="left__sum">1241241 BTC</p>
+									<div class="bottom__img left__img">
+										<img src="/public/Bitcoin.svg" alt="logo">
+									</div>
+								</div>
+								<div class="center">
+									<svg xmlns="http://www.w3.org/2000/svg" width="161" height="32" viewBox="0 0 161 32"
+										fill="none">
+										<g filter="url(#filter0_d_55_211)">
+											<path
+												d="M152.707 10.7071C153.098 10.3166 153.098 9.68342 152.707 9.29289L146.343 2.92893C145.953 2.53841 145.319 2.53841 144.929 2.92893C144.538 3.31946 144.538 3.95262 144.929 4.34315L150.586 10L144.929 15.6569C144.538 16.0474 144.538 16.6805 144.929 17.0711C145.319 17.4616 145.953 17.4616 146.343 17.0711L152.707 10.7071ZM8 11H152V9H8V11Z"
+												fill="#018FFF" />
+										</g>
+										<defs>
+											<filter id="filter0_d_55_211" x="0" y="0.635742" width="161" height="30.7285"
+												filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+												<feFlood flood-opacity="0" result="BackgroundImageFix" />
+												<feColorMatrix in="SourceAlpha" type="matrix"
+													values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+												<feOffset dy="6" />
+												<feGaussianBlur stdDeviation="4" />
+												<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+												<feBlend mode="normal" in2="BackgroundImageFix"
+													result="effect1_dropShadow_55_211" />
+												<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_55_211"
+													result="shape" />
+											</filter>
+										</defs>
+									</svg>
+								</div>
+								<div class="bottom__right">
+									<div class=" bottom__img right__img">
+										<img src="/public/Bitcoin.svg" alt="logo">
+									</div>
+									<p class="right__sum">1241241 BTC</p>
+								</div>
+							</div>
+
+							<div class="exchange__button">
+								<button>Exchange</button>
+							</div>
 						</div>
+
 						<div class="page" id="market">
 							<span class="market">Market</span>
 							<div class="market_box"></div>
 						</div>
+
 					</div>
 			</main>
 		</div>
@@ -336,12 +343,6 @@
 
 
 
-	<!-- 
-	/////////////////////////add_transaction_modal////////////////////// -->
-
-
-
-
 	<div class="add-transaction-modal">
 		<div class="transaction_modal-bg close-modal">
 		</div>
@@ -351,11 +352,6 @@
 			<form name="transaction" action="#">
 				<select name="currency" id="transaction_select">
 					<option selected hidden value="">Select currency</option>
-					<!-- 		<option value="BTC">Bitcoin</option>
-					<option value="GRC">GridCoin</option>
-					<option value="ETH">Ethereum</option>
-					<option value="AE">Aeternity</option>
-					<option value="DASH">Dash</option> -->
 				</select>
 				<p id="balance_trans">Balance</p>
 				<input type="number" name="balance" placeholder="How many">
@@ -364,16 +360,18 @@
 		</div>
 	</div>
 
-	<script type="module" src="components/Transactions/index.js"></script>
+
+
 	<script src="./modules/layout.js"></script>
 	<script src="./modules/resize.js"></script>
-	<script type="module" src="./modules/exchange.js"></script>
-	<script type="module" src="components/doc/donik/index.js"></script>
-	<script type="module" src="components/doc/charts/index.js"></script>
 	<script type="module" src="./main.js"></script>
-	<script type="module" src="components/doc/donik/index.js"></script>
-	<script type="module" src="components/doc/balance/index.js"></script>
-	<script type="module" src="components/doc/charts/index.js"></script>
+	<script type="module" src="./modules/exchange.js"></script>
+	<script type="module" src="components/Transactions/index.js"></script>
+	<script type="module" src="components/donik/index.js"></script>
+	<script type="module" src="components/charts/index.js"></script>
+	<script type="module" src="components/donik/index.js"></script>
+	<script type="module" src="components/balance/index.js"></script>
+	<script type="module" src="components/charts/index.js"></script>
 </body>
 
 </html>

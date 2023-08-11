@@ -64,6 +64,13 @@
       "id": "97ae715a-ff96-44e9-9c10-03c05db43c46",
       "currency": "GateToken",
       "balance": "2222"
+    },
+    {
+      "id": "a50c08be-ae4e-4336-a146-9cdddde857e3",
+      "userId": "e9f6f8f6-4702-4915-b14b-535f9e6a5794",
+      "date": "2023-08-10",
+      "currency": "\"10000\"",
+      "balance": "10000"
     }
   ],
   "transactions": []

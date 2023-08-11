@@ -1,16 +1,16 @@
 import {
 	spendings_chart,
 	market_chart
-} from "/components/doc/charts/index.js"
+} from "/components/charts/index.js"
 import {
 	reload_card
-} from "/components/doc/coin_card/index.js"
+} from "/components/coin_card/index.js"
 import {
 	reload_balance
-} from "/components/doc/balance/index.js"
+} from "/components/balance/index.js"
 import {
 	creat_market_cart
-} from "/components/doc/market_cart/index.js"
+} from "/components/market_cart/index.js"
 import { v4 as uuidv4 } from 'uuid';
 import { postData, getData } from '/modules/http';
 import { useHTTP } from "./modules/http.request";
@@ -29,6 +29,12 @@ pages.forEach(page => {
 	if (location.hash.split('-').join('').includes(page.id)) {
 		pages.forEach(page => page.classList.remove('show-page'))
 		page.classList.add('show-page')
+		pageBtns.forEach(btn => {
+			if (btn.getAttribute("data-page") == page.id) {
+				pageBtns.forEach(btn => btn.classList.remove('active'))
+				btn.classList.add('active')
+			}
+		});
 	}
 })
 
@@ -93,7 +99,7 @@ function reload_news(arr, place) {
 		const p = document.createElement("p")
 
 		span.innerHTML = item.date
-		p.innerHTML = item.title	
+		p.innerHTML = item.title
 
 
 		div.append(span, p)
@@ -113,7 +119,7 @@ const modal_inputs = document.querySelectorAll('.modal input')
 const modal_selects = document.querySelectorAll('.modal select')
 
 
-const {request, loading, error} = useHTTP()
+const { request, loading, error } = useHTTP()
 
 for (let i = 1; i <= 10; i++) {
 	request('https://api.cryptorank.io/v1/currencies/' + i)
@@ -125,7 +131,7 @@ for (let i = 1; i <= 10; i++) {
 
 add_card_form.onsubmit = (e) => {
 	e.preventDefault()
-	
+
 
 	let card = {
 		id: uuidv4(),
@@ -262,27 +268,27 @@ let market_box = document.querySelector(".market_box")
 
 if (localStorage.getItem("marcet_cart")) {
 	creat_market_cart(market_cart_arr, market_box, "market_arr")
-console.log(JSON.parse(localStorage.getItem("marcet_cart")));
+	console.log(JSON.parse(localStorage.getItem("marcet_cart")));
 }
 else {
 	let market_carts_arr = []
 	for (let i = 1; i < 10; i++) {
 		request('https://api.cryptorank.io/v1/currencies/' + i)
-		
-		.then(res => {
-			let item = res.data
-			delete item.category	
-			delete item.circulatingSupply	
-			delete item.lastUpdated	
-			delete item.maxSupply	
-			delete item.rank	
-			delete item.token	
-			delete item.totalSupply	
-			delete item.type	
-			delete item.volume24hBase
-			
-			market_carts_arr.push(item)
-			if (i === 9) {
+
+			.then(res => {
+				let item = res.data
+				delete item.category
+				delete item.circulatingSupply
+				delete item.lastUpdated
+				delete item.maxSupply
+				delete item.rank
+				delete item.token
+				delete item.totalSupply
+				delete item.type
+				delete item.volume24hBase
+
+				market_carts_arr.push(item)
+				if (i === 9) {
 					localStorage.setItem("marcet_cart", JSON.stringify(market_carts_arr))
 				}
 			})
