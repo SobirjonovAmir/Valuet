@@ -253,6 +253,21 @@ header .notice {
   flex-direction: column;
   justify-content: center;
 
+  select {
+    outline: none;
+
+    & option:checked {
+      background-color: #007bff;
+      color: #fff;
+    }
+    option {
+      border: 0;
+      outline: none;
+      background: #160d46;
+      color: #fff;
+    }
+  }
+
   .overview__top {
     .top__header {
       user-select: none;
@@ -792,6 +807,7 @@ header .notice {
     }
   }
 }
+
 #wallets {
   .wallets_h2__ {
     color: #fff;
@@ -895,11 +911,6 @@ header .notice {
     transform: translate(-50%, -50%);
     transition: transform 0.5s;
   }
-
-  .box__:hover .B {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-
   .container__ {
     margin-top: 24px;
   }
@@ -926,20 +937,6 @@ header .notice {
   .box__:hover::before {
     transform-origin: center;
     transform: scaleX(1);
-  }
-
-  .wallets-chart {
-    border-radius: 5px;
-    background: linear-gradient(
-      179deg,
-      rgba(27, 18, 78, 0.2) 0%,
-      #0f0b38 93.37%
-    );
-    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
-    width: 552px;
-    height: 399px;
-    padding-top: 10px;
-    margin-top: 10px;
   }
 
   .el1 {
@@ -1040,6 +1037,107 @@ header .notice {
     font-weight: 700;
     line-height: normal;
     text-transform: capitalize;
+  }
+  .news_chart_box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .bottom__recent-news-box {
+    border-radius: 5px;
+    background: linear-gradient(
+      183deg,
+      rgba(27, 18, 78, 0.678) 0%,
+      #0f0b38 100%
+    );
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
+    padding: 16px 24px 0;
+    position: relative;
+    padding-bottom: 5px;
+
+    h2 {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .divider {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      width: 100%;
+      height: 1px;
+      background: #2d317a;
+    }
+
+    .recent-news-box__content::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .recent-news-box__content {
+      height: 190px;
+      overflow-y: scroll;
+
+      div {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 25px;
+
+        p {
+          color: #fff;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 20px;
+          text-transform: capitalize;
+        }
+
+        span {
+          color: #fff;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          text-transform: lowercase;
+        }
+      }
+    }
+    .recent-news-box__scroll-down {
+      background: linear-gradient(
+        0deg,
+        rgba(21, 14, 67, 1) 30%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 40px;
+      color: white;
+      .scroll-down__box {
+        width: 20px;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      svg {
+        width: 10px;
+        height: auto;
+      }
+    }
+  }
+  .wallets-chart {
+    border-radius: 5px;
+    background: linear-gradient(
+      179deg,
+      rgba(27, 18, 78, 0.2) 0%,
+      #0f0b38 93.37%
+    );
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
+    padding: 24px 10px 0;
   }
 }
 
@@ -1773,7 +1871,6 @@ header .notice {
   }
 }
 
-/////////////////////transaction_modal_zone///////////////////////
 .add-transaction-modal {
   user-select: none;
   display: none;
@@ -1916,5 +2013,3 @@ header .notice {
     opacity: 0;
   }
 }
-
-/////////////////////end_transaction_modal_zone///////////////////////

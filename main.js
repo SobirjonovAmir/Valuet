@@ -1,21 +1,10 @@
-import {
-	spendings_chart,
-	market_chart
-} from "/components/charts/index.js"
-import {
-	reload_card
-} from "/components/coin_card/index.js"
-import {
-	reload_balance
-} from "/components/balance/index.js"
-import {
-	creat_market_cart
-} from "/components/market_cart/index.js"
+import { spendings_chart, market_chart } from "/components/charts/index.js"
+import { reload_card } from "/components/coin_card/index.js"
+import { reload_balance } from "/components/balance/index.js"
+import { creat_market_cart } from "/components/market_cart/index.js"
 import { v4 as uuidv4 } from 'uuid';
 import { postData, getData } from '/modules/http';
 import { useHTTP } from "./modules/http.request";
-
-
 
 const pageBtns = document.querySelectorAll('[data-page]')
 const pages = document.querySelectorAll('.page')
@@ -23,7 +12,14 @@ const add_card_button = document.querySelector("#add_widgets")
 const modal = document.querySelector(".add-card-modal")
 const close_modal = document.querySelectorAll(".close-modal")
 const add_card_form = document.forms.card
-let userData = JSON.parse(localStorage.getItem("user"))
+const balance = document.querySelector('#balanceChart')
+const balance_ = document.querySelector('#balanceChart_')
+const spending = document.querySelector('#spendingsChart').getContext('2d')
+const market = document.querySelector('#marketChart').getContext('2d')
+const walletsChart = document.querySelector('#walletsChart').getContext('2d')
+const widgets_box = document.querySelector(`.widgets-box`)
+const userData = JSON.parse(localStorage.getItem("user"))
+
 
 pages.forEach(page => {
 	if (location.hash.split('-').join('').includes(page.id)) {
@@ -55,16 +51,13 @@ pageBtns.forEach(btn => {
 });
 
 
-const balance = document.querySelector('#balanceChart')
-const balance_ = document.querySelector('#balanceChart_')
 
 
-const spending = document.querySelector('#spendingsChart').getContext('2d')
+
 let spending_data = [1006, 1004, 1007, 1008, 1004, 1009, 1011, 1012]
 let spending_labels = ['2', '4', '6', '8', '10', '12', "14", "16"]
 
 
-const market = document.querySelector('#marketChart').getContext('2d')
 let market_data = [1006, 12004, 2007, 18008, 2004, 15009, 1011, 12212]
 
 reload_balance(balance)
@@ -73,7 +66,6 @@ spendings_chart(spending, spending_data, spending_labels)
 market_chart(market, market_data, spending_labels, false)
 
 
-let widgets_box = document.querySelector(`.widgets-box`)
 
 getData("/wallets")
 	.then(res => reload_card(widgets_box, res.data))
@@ -245,19 +237,9 @@ content.addEventListener("scroll", function () {
 
 
 
-
-
-
 let wallets_labels = ["June", "July", "August", "September", "October"]
 
-const walletsChart = document.querySelector('#walletsChart').getContext('2d')
 market_chart(walletsChart, market_data, wallets_labels, true)
-
-
-
-
-
-
 
 
 
