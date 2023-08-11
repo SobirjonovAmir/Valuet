@@ -24,7 +24,7 @@ export function reload_card(place, array) {
         coin_balans_2.classList.add(`coin_balans_2`)
         coin_kurs.classList.add(`coin_kurs`)
 
-        coin_logo.src = item.currency.images ? item.currency.images["200x200"] : console.log("not an image");
+        coin_logo.src = item.currency.images ? item.currency.images["200x200"] : "/public/Aeternity.svg"
 
         for (let i = 0; i < 3; i++) {
             let hr = document.createElement(`div`)
@@ -66,7 +66,6 @@ export function reload_card(place, array) {
         coin_cart.style.background = "linear-gradient(201deg, #6162D6 0%, #0F0B38 93.37%)"
         coin_logo_r1.style.background = `#5454BD`
         coin_logo_r2.style.background = `#4948A8`
-        coin_logo_r2.style.opacity = `0.4`
 
         coin_balans.append(coin_balans_1, coin_balans_2)
         coin_logo_r1.append(coin_logo)

@@ -1,129 +1,27 @@
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { postData, getData, patchData } from "/modules/http.js";
 
+const userData = JSON.parse(localStorage.getItem("user"))
+const add_card_button = document.querySelector(".trangsictions_btn")
+const modal = document.querySelector(".add-transaction-modal")
+const close_modal = document.querySelectorAll(".transaction_close-modal")
+const form = document.forms.transaction
+const select = document.querySelector('#transaction_select')
+const balanceCard = document.querySelector("#balance_trans")
+const modal_inputs = form.querySelectorAll('input')
+const modal_selects = form.querySelectorAll('select')
+const btn = document.querySelectorAll('.act')
+const analitic = document.querySelector('.big-box')
+const arr = document.querySelectorAll('.item')
+const all = document.querySelector('#all')
+const red = document.querySelector('#red')
+const green = document.querySelector('#green')
 
-let ij = [
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red",
+let arr_green = []
+let arr_red = []
 
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "green"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "defoult",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "defoult",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "green"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "green"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "defoult",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "defoult",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "green"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "green"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "defoult",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "red"
-    },
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "defoult",
-    },
-
-    {
-        id: "kjdgydsgkjhdsgiukhdfgkjdsfhngdfabg",
-        status: "green"
-    },
-]
-let a = document.querySelector('.scroll-down a')
-let btn = document.querySelectorAll('.act')
-let analitic = document.querySelector('.big-box')
-let arr = document.querySelectorAll('.item')
-let all = document.querySelector('#all')
-let red = document.querySelector('#red')
-let green = document.querySelector('#green')
-
-let  arr_green = []
-let  arr_red = []
-
+getData("/transactions?user_id=" + userData.id)
+    .then(res => reload(res.data))
 
 function reload(arr) {
     analitic.innerHTML = ''
@@ -213,8 +111,8 @@ function reload(arr) {
         } else {
         }
     }
-        
-    
+
+
     green.onclick = () => {
         reload(arr_green.splice(0, 10))
         btn.classList.add('btn')
@@ -228,57 +126,31 @@ function reload(arr) {
         reload(ij)
         btn.classList.add('btn')
     }
-    
+
 }
-reload(ij)
-
-
-const add_card_button = document.querySelector(".trangsictions_btn")
-const modal = document.querySelector(".add-transaction-modal")
-const close_modal = document.querySelectorAll(".transaction_close-modal")
-
-
-const add_trans_form = document.forms.transaction
-const select = document.querySelector('#transaction_select')
-const userData = JSON.parse(localStorage.getItem("user"))
-let balanceCard = document.querySelector("#balance_trans")
-
-let cards = []
-
-function ckeckTotal(input, isBool) {
-    input.style.borderBottom = isBool ? '1px solid green' : '1px solid red'
-}
-
-function warning(elementP, message) {
-    const warningElement = document.querySelector(elementP)
-    warningElement.textContent = message
-}
-
-
 
 
 getData("/wallets?user_id=" + userData.id)
     .then(res => {
-        cards = res.data
-        for (let card of cards) {
-            let opt = new Option(card.name, JSON.stringify(card))
+        for (let card of res.data) {
+            let opt = new Option(card.currency.name, JSON.stringify(card))
             select.append(opt)
         }
     })
 
-    select.oninput = () => {
-        let selectedCard = JSON.parse(select.value)
-        if (selectedCard) {
-            balanceCard.innerHTML = `Balance card: ${selectedCard.balance}`
-        } else {
-            balanceCard.innerHTML = `Balance card:`
-        }
+select.oninput = () => {
+    let selectedCard = JSON.parse(select.value)
+    if (selectedCard) {
+        balanceCard.innerHTML = `Balance: ${(+selectedCard.balance).toLocaleString()} ${selectedCard.currency.symbol}`
+    } else {
+        balanceCard.innerHTML = `Balance:`
     }
+}
 
 
 
 
-add_trans_form.onsubmit = (e) => {
+form.onsubmit = (e) => {
     e.preventDefault()
 
     let userTransaction = {
@@ -292,42 +164,7 @@ add_trans_form.onsubmit = (e) => {
     fm.forEach((value, key) => {
         userTransaction[key] = value
     })
-
-    let selectedCard = JSON.parse(form.wallet.value)
-    let price = +form.total.value
-
-    if (selectedCard && selectedCard.balance >= price) {
-        userTransaction.wallet = selectedCard
-        userTransaction.wallet_id = selectedCard.id
-        userTransaction.total = price
-
-        postData("/transactions", userTransaction)
-            .then(res => {
-                if (res.status === 200 || res.status === 201) {
-                    
-                    const newBalance = selectedCard.balance - price
-                    patchData(`/wallets/${selectedCard.id}`, { balance: newBalance })
-                        .then(patchRes => {
-                            if (patchRes.status === 200) {
-                                location.assign('/components/donik/')
-                            }
-                        })       
-                }
-            })
-
-        form.reset()
-    } else {
-        alert('Недостаточно средств')
-    }
-
-    modal_inputs.forEach(input => {
-        if (input.value === '') {
-            input.focus()
-            input.style.borderBottom = "1px solid red"
-        } else {
-            input.style.borderBottom = "1px solid green"
-        }
-    })
+    
     modal_selects.forEach(select => {
         if (select.value === '') {
             select.style.borderBottom = "1px solid red"
@@ -335,6 +172,43 @@ add_trans_form.onsubmit = (e) => {
             select.style.borderBottom = "1px solid green"
         }
     })
+    modal_inputs.forEach(input => {
+        if (input.value === '') {
+            input.style.borderBottom = "1px solid red"
+            input.focus()
+        } else {
+            input.style.borderBottom = "1px solid green"
+        }
+    })
+
+
+    for (const key in userTransaction) {
+        const element = userTransaction[key]
+        if (element === "") {
+            return
+        }
+    }
+    let selectedCard = JSON.parse(userTransaction.currency)
+
+    //if (selectedCard.balance < modal_inputs[0].value) {
+    //    modal_inputs[0].style.borderBottom = "1px solid red"
+    //}
+
+
+    postData("/transactions", userTransaction)
+        .then(res => {
+            let newBalance = selectedCard.balance - userTransaction.balance
+            if (res.status === 200 || res.status === 201) {
+                patchData(`/wallets/${selectedCard.id}`, { balance: newBalance })
+                    .then(() => {
+                        getData("/transactions?user_id=" + userData.id)
+                            .then(res => reload(res.data))
+                    })
+            }
+        })
+    form.reset()
+
+
     modal.classList.add("hidden")
     close(modal)
 }
@@ -347,9 +221,9 @@ close_modal.forEach(item => {
 })
 
 add_card_button.onclick = () => {
-	modal.style.display = "block"
-	modal.classList.remove("hidden")
-	modal.classList.add("active")
+    modal.style.display = "block"
+    modal.classList.remove("hidden")
+    modal.classList.add("active")
 }
 
 

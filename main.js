@@ -139,7 +139,7 @@ const modal_selects = document.querySelectorAll('.modal select')
 const { request, loading, error } = useHTTP()
 
 for (let i = 1; i <= 10; i++) {
-	request('https://api.cryptorank.io/v1/currencies/' + i)
+	request('https://api.cryptorank.io/v1/currencies/?' + i)
 		.then(res => {
 			let opt = new Option(res.data.name, JSON.stringify(res.data))
 			modal_selects[0].append(opt)
@@ -162,6 +162,7 @@ add_card_form.onsubmit = (e) => {
 	fm.forEach((value, key) => {
 		card[key] = value
 	})
+	
 	modal_inputs.forEach(input => {
 		if (input.value === '') {
 			input.focus()
@@ -219,36 +220,65 @@ market_chart(walletsChart, wallets_data, wallets_labels, true)
 let market_cart_arr = ["DASH", "Aeternity", "Ethereum", "PeerCoin", "BitCoin", "GridCoin", "NavCoin", "LiteCoin", "Nano"]
 let market_box = document.querySelector(".market_box")
 
+const transactions = [
+	{ time: "AM 01:16", type: "green", amount: "+ 4,800" },
+	{ time: "AM 01:16", type: "red", amount: "- 2,800" },
+	{ time: "AM 01:16", type: "green", amount: "+ 1,800" },
+	{ time: "AM 01:16", type: "green", amount: "+ 9,800" },
+	{ time: "AM 01:16", type: "red", amount: "- 2,800" },
+	{ time: "AM 01:16", type: "green", amount: "+ 6,800" },
+	{ time: "AM 01:16", type: "red", amount: "- 5,800" },
+	{ time: "AM 01:16", type: "green", amount: "+ 2,800" },
+	{ time: "AM 01:16", type: "green", amount: "+ 1,800" },
+	{ time: "AM 01:16", type: "red", amount: "- 7,800" },
+];
+const recentTransactionsBox = document.createElement("div");
+recentTransactionsBox.classList.add("recent_transactions_box");
+transactions.forEach((transaction) => {
+	const whenWhatBox = document.createElement("div");
+	whenWhatBox.classList.add("when_what_box");
 
+	const a = document.createElement("div");
+	a.classList.add("a__");
 
-if (localStorage.getItem("marcet_cart")) {
-	creat_market_cart(market_cart_arr, market_box, "market_arr")
-} else {
-	let market_carts_arr = []
-	for (let i = 1; i < 10; i++) {
-		request('https://api.cryptorank.io/v1/currencies/' + i)
+	const when = document.createElement("div");
+	when.classList.add("when");
+	when.textContent = transaction.time;
 
-			.then(res => {
-				let item = res.data
-				delete item.category
-				delete item.circulatingSupply
-				delete item.lastUpdated
-				delete item.maxSupply
-				delete item.rank
-				delete item.token
-				delete item.totalSupply
-				delete item.type
-				delete item.volume24hBase
+	const img = document.createElement("img");
+	img.classList.add("img__");
+	img.src = `./ public / ${transaction.type}.svg`;
 
-				market_carts_arr.push(item)
-				if (i === 9) {
-					localStorage.setItem("marcet_cart", JSON.stringify(market_carts_arr))
-				}
-			})
-	}
-}
+	const what = document.createElement("div");
+	what.classList.add("what");
 
+	const pBg = document.createElement("p");
+	pBg.classList.add("p_bg");
+	pBg.textContent = "Received BitCoin";
 
+	const pMl = document.createElement("p");
+	pMl.classList.add("p_ml");
+	pMl.textContent = "From Elon Musk";
+
+	what.appendChild(pBg);
+	what.appendChild(pMl);
+
+	a.appendChild(when);
+	a.appendChild(img);
+	a.appendChild(what);
+
+	const plusMines = document.createElement("p");
+	plusMines.classList.add("plus_mines");
+	plusMines.textContent = transaction.amount;
+
+	whenWhatBox.appendChild(a);
+	whenWhatBox.appendChild(plusMines);
+
+	recentTransactionsBox.appendChild(whenWhatBox);
+});
+
+let conta1ner = document.querySelector('#wallets .recent-news-box__content')
+conta1ner.appendChild(recentTransactionsBox);
 
 
 
@@ -279,59 +309,43 @@ function close(modal) {
 }
 
 
-const scrollButton = document.querySelector(".scroll-down__box");
-const content = document.querySelector(".recent-news-box__content");
-let lastScrollPosition = content.scrollTop;
-
-scrollButton.addEventListener("click", function () {
-	const lastElement = content.lastElementChild;
-	if (lastElement) {
-		lastElement.scrollIntoView({ behavior: "smooth", block: "end" });
-	}
-});
-
-content.addEventListener("scroll", function () {
-	const currentScrollPosition = content.scrollTop;
-	const lastElement = content.lastElementChild;
-	if (lastElement) {
-		if (currentScrollPosition > lastScrollPosition) {
-			scrollButton.parentElement.style.display = "none";
-		} else {
-			scrollButton.parentElement.style.display = "flex";
-		}
-
-		lastScrollPosition = currentScrollPosition;
-	}
-});
 
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-	var content = document.querySelector(".big-box");
-	var scrollButton = document.querySelector(".scroll-down a");
 
-	scrollButton.addEventListener("click", function () {
-		const lastElement = content.lastElementChild;
+scrollDown("#overwiev .bottom__recent-news-box", ".recent-news-box__content", ".scroll-down__box")
+scrollDown(".analitic", ".big-box", ".scroll-down a")
 
-		if (lastElement) {
-			lastElement.scrollIntoView({ behavior: "smooth", block: "end" });
-		}
+function scrollDown(container_scroll, content_scroll, button) {
+	document.addEventListener("DOMContentLoaded", function () {
+		let container = document.querySelector(container_scroll);
+		let content = document.querySelector(content_scroll);
+		let scrollButton = document.querySelector(button);
+		let lastScrollPosition = content.scrollTop;
 
-	});
-	content.addEventListener("scroll", function () {
-		const currentScrollPosition = content.scrollTop;
-		const lastElement = content.lastElementChild;
-		if (lastElement) {
-			if (currentScrollPosition > lastScrollPosition) {
-				scrollButton.parentElement.style.display = "none";
-			} else {
-				scrollButton.parentElement.style.display = "flex";
+		scrollButton.addEventListener("click", function () {
+			const lastElement = content.lastElementChild;
+			if (lastElement) {
+				lastElement.scrollIntoView({ behavior: "smooth", block: "end" });
 			}
-			lastScrollPosition = currentScrollPosition;
-		}
+		});
+
+		content.addEventListener("scroll", function () {
+			const currentScrollPosition = content.scrollTop;
+			const lastElement = content.lastElementChild;
+			if (lastElement) {
+				if (currentScrollPosition > lastScrollPosition) {
+					scrollButton.parentElement.style.display = "none";
+				} else {
+					scrollButton.parentElement.style.display = "flex";
+				}
+				lastScrollPosition = currentScrollPosition;
+			}
+		});
+
 	});
-});
+}
 
 
 

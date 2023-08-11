@@ -112,7 +112,7 @@
           }
         ]
       },
-      "balance": "12412"
+      "balance": -124124
     },
     {
       "id": "8b776db0-856d-4d39-af29-3be2a1f9404b",
@@ -172,7 +172,7 @@
         },
         "lastUpdated": "2023-08-11T14:30:10.396Z"
       },
-      "balance": "100"
+      "balance": -1123
     },
     {
       "id": "e83a56db-310b-410f-aede-1aaff56c3278",
@@ -235,5 +235,7 @@
       "balance": "5225214"
     }
   ],
-  "transactions": []
+  "transactions": [
+    
+  ]
 }
