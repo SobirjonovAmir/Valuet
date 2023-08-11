@@ -176,24 +176,24 @@ function reload(arr) {
             span.innerHTML = '0.0085 GRC'
             button.style.background = "#F35050"
             button.innerHTML = 'Error'
-            rigthImg.src = '/public/Group 13.2red.png'
-            circleImg.src = '/public/Group 2.8money.png'
+            //rigthImg.src = '/public/Group 13.2red.png'
+            //circleImg.src = '/public/Group 2.8money.png'
 
         } else if (i.status === "green") {
             span.innerHTML = '0.0085 BTC'
 
             button.style.background = "#00E8ACBF"
             button.innerHTML = 'Completed'
-            rigthImg.src = '/public/Group 13.2green.png'
-            circleImg.src = '/public/Vectorbitcoin.png'
+            //rigthImg.src = '/public/Group 13.2green.png'
+            //circleImg.src = '/public/Vectorbitcoin.png'
 
         } else {
             span.innerHTML = '0.0085 BTC'
 
-            circleImg.src = '/public/Vectorbitcoin.png'
+            //circleImg.src = '/public/Vectorbitcoin.png'
             button.style.background = "#32395E;"
             button.innerHTML = 'Waiting'
-            rigthImg.src = '/public/Group 13.2green.png'
+            //rigthImg.src = '/public/Group 13.2green.png'
         }
 
 
@@ -339,40 +339,7 @@ add_trans_form.onsubmit = (e) => {
     close(modal)
 }
 
-/* 
 
-
-add_trans_form.total.oninput = () => {
-    let selectedCard = JSON.parse(form.wallet.value)
-    let price = +form.total.value
-
-    if (selectedCard) {
-    
-        if (selectedCard.balance >= price) {
-            warning('#wallet-warning', '')
-            ckeckTotal(form.wallet, true)
-        } else {
-            warning('#wallet-warning', 'Недостаточно средств')
-            ckeckTotal(form.wallet, false)
-        }
-
-        if (price > 0) {
-            warning('#total-warning', '')
-            ckeckTotal(form.total, true)
-        } else {
-            warning('#total-warning', 'Введите сумму больше нуля!')
-            ckeckTotal(form.total, false)
-        }
-    } else {
-        warning('#wallet-warning', 'Выберите карточку!')
-        ckeckTotal(form.wallet, false)
-        warning('#total-warning', '')
-        ckeckTotal(form.total, true)
-    }
-
-}
-   
- */
 close_modal.forEach(item => {
     item.onclick = () => {
         close(modal)
@@ -399,5 +366,3 @@ function close(modal) {
         select.style.borderBottom = "1px solid #1288E8"
     })
 }
-
-console.log(analitic);

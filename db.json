@@ -173,6 +173,66 @@
         "lastUpdated": "2023-08-11T14:30:10.396Z"
       },
       "balance": "100"
+    },
+    {
+      "id": "e83a56db-310b-410f-aede-1aaff56c3278",
+      "userId": "f86e2c38-9a08-451a-8fe5-dccd7eb30034",
+      "date": "2023-08-11",
+      "currency": {
+        "id": 4,
+        "slug": "neo",
+        "name": "NEO",
+        "symbol": "NEO",
+        "category": "Blockchain Infrastructure",
+        "volume24hBase": 984003.5448,
+        "totalSupply": 100000000,
+        "maxSupply": 100000000,
+        "images": {
+          "16x16": "https://img.api.cryptorank.io/coins/icon.neo1645006837175.png",
+          "200x200": "https://img.api.cryptorank.io/coins/neo1645006837175.png",
+          "60x60": "https://img.api.cryptorank.io/coins/60x60.neo1645006837175.png"
+        },
+        "values": {
+          "USD": {
+            "price": 8.514316988034,
+            "volume24h": 8378118,
+            "high24h": 8.537613952057,
+            "low24h": 8.431210728427,
+            "marketCap": 600514777.166038,
+            "percentChange24h": 0.5905,
+            "percentChange7d": -0.1882,
+            "percentChange30d": -6.5152,
+            "percentChange3m": -7.605,
+            "percentChange6m": -6.994
+          },
+          "BTC": {
+            "price": 0.0002885954911208,
+            "volume24h": 283,
+            "high24h": 0.0002903402688207,
+            "low24h": 0.0002862670905534,
+            "marketCap": 20354.639988750023,
+            "percentChange24h": 0.7968,
+            "percentChange7d": -1.14,
+            "percentChange30d": -2.613,
+            "percentChange3m": -16.0862,
+            "percentChange6m": -31.7481
+          },
+          "ETH": {
+            "price": 0.00459364616444,
+            "volume24h": 4520,
+            "high24h": 0.00462106807389,
+            "low24h": 0.0045514201053,
+            "marketCap": 323989.86397795315,
+            "percentChange24h": 0.8032,
+            "percentChange7d": -0.7623,
+            "percentChange30d": -4.5708,
+            "percentChange3m": -9.8984,
+            "percentChange6m": -23.9429
+          }
+        },
+        "lastUpdated": "2023-08-11T14:33:20.154Z"
+      },
+      "balance": "5225214"
     }
   ],
   "transactions": []
