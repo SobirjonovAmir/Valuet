@@ -8,6 +8,172 @@
       "password": "amka2003"
     }
   ],
-  "wallets": [],
+  "wallets": [
+    {
+      "id": "b7c0672b-6d34-4a86-b5a5-71ea0f543048",
+      "userId": "f86e2c38-9a08-451a-8fe5-dccd7eb30034",
+      "date": "2023-08-11",
+      "currency": {
+        "id": 1,
+        "rank": 1,
+        "slug": "bitcoin",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "category": "Currency",
+        "type": "coin",
+        "volume24hBase": 131658.96,
+        "circulatingSupply": 19454093,
+        "totalSupply": 21000000,
+        "maxSupply": 21000000,
+        "images": {
+          "16x16": "https://img.api.cryptorank.io/coins/icon.bitcoin1524754012028.png",
+          "200x200": "https://img.api.cryptorank.io/coins/bitcoin1524754012028.png",
+          "60x60": "https://img.api.cryptorank.io/coins/60x60.bitcoin1524754012028.png"
+        },
+        "values": {
+          "USD": {
+            "price": 29427.079581394537,
+            "volume24h": 3874338693,
+            "high24h": 29678.412623686065,
+            "low24h": 29353.125833178183,
+            "marketCap": 572477142894.8503,
+            "percentChange24h": -0.1243,
+            "percentChange7d": 0.9463,
+            "percentChange30d": -4.291,
+            "percentChange3m": 9.8287,
+            "percentChange6m": 35.9241
+          },
+          "BTC": {
+            "price": 1,
+            "volume24h": 131658,
+            "high24h": 1,
+            "low24h": 1,
+            "marketCap": 19454093,
+            "percentChange24h": 0,
+            "percentChange7d": 0,
+            "percentChange30d": 0,
+            "percentChange3m": 0,
+            "percentChange6m": 0
+          },
+          "ETH": {
+            "price": 15.89838293653592,
+            "volume24h": 2093164,
+            "high24h": 15.9612084153844,
+            "low24h": 15.88703348662924,
+            "marketCap": 309288620.1969829,
+            "percentChange24h": -0.152,
+            "percentChange7d": 0.052,
+            "percentChange30d": -2.2091,
+            "percentChange3m": 7.2882,
+            "percentChange6m": 11.3552
+          }
+        },
+        "lastUpdated": "2023-08-11T12:15:13.400Z",
+        "links": [
+          {
+            "type": "linkedin",
+            "value": "https://www.linkedin.com/company/bitcoin-foundation/"
+          },
+          {
+            "type": "facebook",
+            "value": "https://www.facebook.com/bitcoin"
+          },
+          {
+            "type": "github",
+            "value": "https://github.com/bitcoin/bitcoin"
+          },
+          {
+            "type": "explorer",
+            "value": "https://blockchain.info/"
+          },
+          {
+            "type": "messageboard",
+            "value": "https://bitcointalk.org"
+          },
+          {
+            "type": "messageboard",
+            "value": "https://forum.bitcoin.com/"
+          },
+          {
+            "type": "web",
+            "value": "https://bitcoin.org/"
+          },
+          {
+            "type": "explorer",
+            "value": "https://explorer.bitquery.io/bitcoin"
+          },
+          {
+            "type": "whitepaper",
+            "value": "https://www.ussc.gov/sites/default/files/pdf/training/annual-national-training-seminar/2018/Emerging_Tech_Bitcoin_Crypto.pdf"
+          },
+          {
+            "type": "reddit",
+            "value": "https://www.reddit.com/r/Bitcoin/"
+          }
+        ]
+      },
+      "balance": "12412"
+    },
+    {
+      "id": "8b776db0-856d-4d39-af29-3be2a1f9404b",
+      "userId": "f86e2c38-9a08-451a-8fe5-dccd7eb30034",
+      "date": "2023-08-11",
+      "currency": {
+        "id": 6,
+        "slug": "stellar",
+        "name": "Stellar",
+        "symbol": "XLM",
+        "category": "Blockchain Infrastructure",
+        "volume24hBase": 343199433.1158,
+        "totalSupply": 50001787286,
+        "maxSupply": 50001787286,
+        "images": {
+          "16x16": "https://img.api.cryptorank.io/coins/icon.stellar1645006520371.png",
+          "200x200": "https://img.api.cryptorank.io/coins/stellar1645006520371.png",
+          "60x60": "https://img.api.cryptorank.io/coins/60x60.stellar1645006520371.png"
+        },
+        "values": {
+          "USD": {
+            "price": 0.139802549367,
+            "volume24h": 47980155,
+            "high24h": 0.140758034571,
+            "low24h": 0.137995936141,
+            "marketCap": 3826212527.746367,
+            "percentChange24h": 0.1625,
+            "percentChange7d": -0.3766,
+            "percentChange30d": 42.7768,
+            "percentChange3m": 56.5036,
+            "percentChange6m": 62.7296
+          },
+          "BTC": {
+            "price": 0.0000047386408608,
+            "volume24h": 1626,
+            "high24h": 0.0000047886738405,
+            "low24h": 0.0000046862945618,
+            "marketCap": 129690.38911076945,
+            "percentChange24h": 0.3679,
+            "percentChange7d": -1.3266,
+            "percentChange30d": 48.7365,
+            "percentChange3m": 42.1375,
+            "percentChange6m": 19.4182
+          },
+          "ETH": {
+            "price": 0.00007544924136,
+            "volume24h": 25894,
+            "high24h": 0.00007622700854,
+            "low24h": 0.00007455827694,
+            "marketCap": 2064946.8397228995,
+            "percentChange24h": 0.3743,
+            "percentChange7d": -0.9496,
+            "percentChange30d": 45.7464,
+            "percentChange3m": 52.6187,
+            "percentChange6m": 33.0747
+          }
+        },
+        "lastUpdated": "2023-08-11T14:30:10.396Z"
+      },
+      "balance": "100"
+    }
+  ],
   "transactions": []
 }

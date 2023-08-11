@@ -18,7 +18,11 @@ const spending = document.querySelector('#spendingsChart').getContext('2d')
 const market = document.querySelector('#marketChart').getContext('2d')
 const walletsChart = document.querySelector('#walletsChart').getContext('2d')
 const widgets_box = document.querySelector(`.widgets-box`)
+const currentDate = new Date();
+const formattedDate = formatDate(currentDate);
+const news_box = document.querySelector(".recent-news-box__content")
 const userData = JSON.parse(localStorage.getItem("user"))
+document.querySelector("#overview_date").innerHTML = formattedDate
 
 
 pages.forEach(page => {
@@ -71,16 +75,39 @@ getData("/wallets")
 	.then(res => reload_card(widgets_box, res.data))
 
 
-const currentDate = new Date();
-const formattedDate = formatDate(currentDate);
-document.querySelector("#overview_date").innerHTML = formattedDate
-let news_box = document.querySelector(".recent-news-box__content")
-
 let news_arr = [
 	{
-		"title": "afsasaf",
-		"date": "aasfasf"
-	}
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "1 hour ago"
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "2 hours ago"
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "3 hours ago"
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "4 hours ago"
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "5 hours ago"
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "6 hours ago "
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "7 hours ago"
+	},
+	{
+		"title": "Lorem ipsum dolor sit amet. Fuga exercitationem provident temporibus sapiente id veniam veritatis.",
+		"date": "8 gours ago"
+	},
 ]
 
 reload_news(news_arr, news_box)
@@ -109,21 +136,21 @@ function formatDate(date) {
 
 const modal_inputs = document.querySelectorAll('.modal input')
 const modal_selects = document.querySelectorAll('.modal select')
-
-
 const { request, loading, error } = useHTTP()
 
 for (let i = 1; i <= 10; i++) {
 	request('https://api.cryptorank.io/v1/currencies/' + i)
 		.then(res => {
+			console.log(res.data);
 			let opt = new Option(res.data.name, JSON.stringify(res.data))
 			modal_selects[0].append(opt)
 		})
 }
 
+
+
 add_card_form.onsubmit = (e) => {
 	e.preventDefault()
-
 
 	let card = {
 		id: uuidv4(),
@@ -136,7 +163,6 @@ add_card_form.onsubmit = (e) => {
 	fm.forEach((value, key) => {
 		card[key] = value
 	})
-
 	modal_inputs.forEach(input => {
 		if (input.value === '') {
 			input.focus()
@@ -161,9 +187,12 @@ add_card_form.onsubmit = (e) => {
 	}
 
 	card.currency = JSON.parse(card.currency)
-	card.currency = JSON.stringify(card.balance)
 
 	delete card.currency.tokens
+	delete card.currency.links
+	delete card.currency.rank
+	delete card.currency.circulatingSupply
+	delete card.currency.type
 
 
 	postData("/wallets", card)
@@ -181,18 +210,61 @@ add_card_form.onsubmit = (e) => {
 
 
 
+
+let wallets_data = [1006, 2004, 1007, 2008, 1004,]
+let wallets_labels = ["June", "July", "August", "September", "October"]
+market_chart(walletsChart, wallets_data, wallets_labels, true)
+
+
+
+let market_cart_arr = ["DASH", "Aeternity", "Ethereum", "PeerCoin", "BitCoin", "GridCoin", "NavCoin", "LiteCoin", "Nano"]
+let market_box = document.querySelector(".market_box")
+
+
+
+if (localStorage.getItem("marcet_cart")) {
+	creat_market_cart(market_cart_arr, market_box, "market_arr")
+} else {
+	let market_carts_arr = []
+	for (let i = 1; i < 10; i++) {
+		request('https://api.cryptorank.io/v1/currencies/' + i)
+
+			.then(res => {
+				let item = res.data
+				delete item.category
+				delete item.circulatingSupply
+				delete item.lastUpdated
+				delete item.maxSupply
+				delete item.rank
+				delete item.token
+				delete item.totalSupply
+				delete item.type
+				delete item.volume24hBase
+
+				market_carts_arr.push(item)
+				if (i === 9) {
+					localStorage.setItem("marcet_cart", JSON.stringify(market_carts_arr))
+				}
+			})
+	}
+}
+
+
+
+
+
+
+
 close_modal.forEach(item => {
 	item.onclick = () => {
 		close(modal)
 	}
 })
-
 add_card_button.onclick = () => {
 	modal.style.display = "block"
 	modal.classList.remove("hidden")
 	modal.classList.add("active")
 }
-
 function close(modal) {
 	modal.classList.remove("active")
 	modal.classList.add("hidden")
@@ -206,7 +278,6 @@ function close(modal) {
 		select.style.borderBottom = "1px solid #1288E8"
 	})
 }
-
 
 
 const scrollButton = document.querySelector(".scroll-down__box");
@@ -237,44 +308,33 @@ content.addEventListener("scroll", function () {
 
 
 
-let wallets_labels = ["June", "July", "August", "September", "October"]
+document.addEventListener("DOMContentLoaded", function () {
+	var content = document.querySelector(".big-box");
+	var scrollButton = document.querySelector(".scroll-down a");
 
-market_chart(walletsChart, market_data, wallets_labels, true)
+	scrollButton.addEventListener("click", function () {
+		const lastElement = content.lastElementChild;
+
+		if (lastElement) {
+			lastElement.scrollIntoView({ behavior: "smooth", block: "end" });
+		}
+
+	});
+	content.addEventListener("scroll", function () {
+		const currentScrollPosition = content.scrollTop;
+		const lastElement = content.lastElementChild;
+		if (lastElement) {
+			if (currentScrollPosition > lastScrollPosition) {
+				scrollButton.parentElement.style.display = "none";
+			} else {
+				scrollButton.parentElement.style.display = "flex";
+			}
+			lastScrollPosition = currentScrollPosition;
+		}
+	});
+});
 
 
 
-let market_cart_arr = ["DASH", "Aeternity", "Ethereum", "PeerCoin", "BitCoin", "GridCoin", "NavCoin", "LiteCoin", "Nano"]
-let market_box = document.querySelector(".market_box")
-
-
-
-if (localStorage.getItem("marcet_cart")) {
-	creat_market_cart(market_cart_arr, market_box, "market_arr")
-	console.log(JSON.parse(localStorage.getItem("marcet_cart")));
-}
-else {
-	let market_carts_arr = []
-	for (let i = 1; i < 10; i++) {
-		request('https://api.cryptorank.io/v1/currencies/' + i)
-
-			.then(res => {
-				let item = res.data
-				delete item.category
-				delete item.circulatingSupply
-				delete item.lastUpdated
-				delete item.maxSupply
-				delete item.rank
-				delete item.token
-				delete item.totalSupply
-				delete item.type
-				delete item.volume24hBase
-
-				market_carts_arr.push(item)
-				if (i === 9) {
-					localStorage.setItem("marcet_cart", JSON.stringify(market_carts_arr))
-				}
-			})
-	}
-}
 
 

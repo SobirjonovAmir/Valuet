@@ -1,5 +1,5 @@
 import axios from "axios"
-const key = import.meta.env.VITE_API_KEY
+const key = "e82a21100382bd1de0b120fa891faf502bffd806d1e8697d261544f1e9cc"
 
 
 const methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]

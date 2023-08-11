@@ -7,7 +7,6 @@ export function reload_balance(place) {
   let one_num = document.querySelector('.one_num')
   let two_num = document.querySelector('.two_num')
   let three_num = document.querySelector('.three_num')
-  let ctx = document.querySelector('#myChart')
 
   let total_one = 23
   let total_two = 34
@@ -22,7 +21,7 @@ export function reload_balance(place) {
     data: {
       labels: ["Dash", "Bitcoin", "Ethereum"],
       datasets: [{
-        label: '# of Votes',
+        label: '',
         data: [total_one, total_two, total_three],
         borderWidth: 0,
         backgroundColor: ['#FAD679', '#018FFF', '#FFFFFF']

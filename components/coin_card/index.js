@@ -1,75 +1,7 @@
-export let coin_arr = {
-    ballans: 30000000,
-    "BitCoin": {
-        tara: 1200,
-        collor: {
-            background: `linear-gradient(201deg, #604392 0%, #0F0B38 93.37%)`,
-            r1: `rgba(100, 70, 150, 1)`,
-            r2: `rgba(77, 51, 127, 0.5)`
-        },
-        kurs: [[`true`, 6542.35], [`false`, 6264.35], [`false`, 6642.22]]
-    },
-    "GridCoin": {
-        tara: 1200,
-        collor: {
-            background: `linear-gradient(201deg, #604392 0%, #0F0B38 93.37%)`,
-            r1: `rgba(188, 86, 97, 1)`,
-            r2: `rgba(170, 94, 105, 0.4)`
-        },
-        kurs: [[`true`, 6542.35], [`false`, 6264.35], [`false`, 6642.22]]
-    },
-    "Ethereum": {
-        coin: `ETH`,
-        tara: 1200,
-        collor: {
-            background: `linear-gradient(201deg, #6162D6 0%, #0F0B38 93.37%)`,
-            r1: `rgba(84, 84, 189, 1)`,
-            r2: `rgba(73, 72, 168, 0.4)`
-        },
-        kurs: [[`true`, 6542.35], [`false`, 6264.35], [`false`, 6642.22]]
-    },
-    "Aeternity": {
-        tara: 1200,
-        collor: {
-            background: `linear-gradient(201deg, #EB8338 0%, #0F0B38 93.37%)`,
-            r1: `rgba(200, 112, 56, 1)`,
-            r2: `rgba(145, 93, 59, 0.5)`
-        },
-        kurs: [[`true`, 6542.35], [`false`, 6264.35], [`false`, 6642.22]]
-    },
-    "Dash": {
-        tara: 1200,
-        collor: {
-            background: `linear-gradient(201deg, #EB8338 0%, #0F0B38 93.37%)`,
-            r1: `rgba(200, 112, 56, 1)`,
-            r2: `rgba(145, 93, 59, 0.5)`
-        },
-        kurs: [[`true`, 6542.35], [`false`, 6264.35], [`false`, 6642.22]]
-    },
-    curs_arrow: {
-        true: {
-            Image: `/public/up.svg`
-        },
-        false: {
-            Image: `/public/down.svg`
-        }
-    }
-}
-
-let currencies = {
-    "BTC": "BitCoin",
-    "ETH": "Ethereum",
-    "XRP": "XRP",
-    "AE": "Aeternity",
-    "DASH": "Dash",
-    "NEO": "NEO",
-    "GRC": "GridCoin"
-}
-
-
 export function reload_card(place, array) {
     place.innerHTML = ""
     for (const item of array) {
+        console.log(item);
         let coin_cart = document.createElement(`div`)
         let coin_name = document.createElement(`h1`)
         let coin_info = document.createElement(`div`)
@@ -111,19 +43,17 @@ export function reload_card(place, array) {
             coin_kurs_val_2.classList.add(`coin_kurs_val_2`)
             coin_kurs_val_1.classList.add(`coin_kurs_val_1`)
 
-            if (item.balance < 0) {
-                //coin_kurs_val_1.innerHTML = `$ ${(coin_arr[currencies[item.currency]].tara).toLocaleString()}= ${(Math.round((coin_arr[currencies[item.currency]].tara / (coin_arr[currencies[item.currency]].kurs[i][1])) * 1000) / 1000).toLocaleString()} ${(item.currency).toLowerCase()}`
-                //coin_kurs_val_2.innerHTML = `1 ${item.currency} = $ ${(coin_arr[currencies[item.currency]].kurs[i][1]).toLocaleString()} `
+            if (item.currency.values["USD"].percentChange30d > 0) {
+                coin_kurs_val_1.innerHTML = `$ ${(1200).toLocaleString()} = ${(1200 / item.currency.values["USD"].price).toLocaleString()} ${(item.currency.symbol).toLowerCase()}`
+                coin_kurs_val_2.innerHTML = `1 ${item.currency.symbol} = $ ${(item.currency.values["USD"].price).toLocaleString()} `
                 coin_kurs_arrow.src = "/public/up.svg"
                 
             } else {
-                coin_kurs_val_1.innerHTML = `$ ${(item.currency.values["USD"].volume24h).toLocaleString()}= ${(item.currency.values["USD"].volume24h).toLocaleString()} ${(item.currency.symbol).toLowerCase()}`
-                //coin_kurs_val_2.innerHTML = `1 ${item.currency} = $ ${(coin_arr[currencies[item.currency]].kurs[i][1]).toLocaleString()} `
+                coin_kurs_val_1.innerHTML = `$ ${(1200).toLocaleString()} = ${(1200 / item.currency.values["USD"].price).toLocaleString()} ${(item.currency.symbol).toLowerCase()}`
+                coin_kurs_val_2.innerHTML = `1 ${item.currency.symbol} = $ ${(item.currency.values["USD"].price).toLocaleString()} `
                 coin_kurs_arrow.src = "/public/down.svg"
             }
-
-
-
+            
             coin_kurs_val_box.append(coin_kurs_val_1, coin_kurs_val_2)
             coin_kurs_box.append(coin_kurs_arrow, coin_kurs_val_box)
             coin_kurs.append(coin_kurs_box, hr)
